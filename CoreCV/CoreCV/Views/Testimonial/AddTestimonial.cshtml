@@ -1,0 +1,47 @@
+﻿@model EntityLayer.Concrete.Testimonial
+@{
+    ViewData["Title"] = "AddTestimonial";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+<style>
+    .form-control-textarea {
+        width: 8.3em; /* Genişlik değeri istediğiniz gibi ayarlayabilirsiniz */
+        height: 100px; /* İstediğiniz yükseklik değerini burada belirleyebilirsiniz */
+        resize: vertical; /* Kullanıcı tarafından dikey boyutlandırma yapılabilir */
+    }
+</style>
+@using (Html.BeginForm("AddTestimonial", "Testimonial", FormMethod.Post))
+{
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Yeni Referans Ekleme Sayfası</h4>
+                <form class="forms-sample">
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Ad Soyad</label>
+                        <input type="text" name="ClientName" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Şirket</label>
+                        <input type="text" name="Company" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Ünvan</label>
+                        <input type="text" name="Title" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Resim Yolu</label>
+                        <input type="text" name="ImageUrl" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Yorum</label>
+                        @Html.TextAreaFor(x => x.Comment, 8, 3, new { @class = "form-control" })
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-dark">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}

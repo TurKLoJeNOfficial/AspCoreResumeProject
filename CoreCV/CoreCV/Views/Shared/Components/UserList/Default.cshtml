@@ -1,0 +1,34 @@
+﻿@using EntityLayer.Concrete
+@model List<WriterUser>
+
+<div class="col-md-4 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex flex-row justify-content-between">
+                <h4 class="card-title mb-1">Son Kullanıcılar</h4>
+
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="preview-list">
+                        @foreach (var item in Model)
+                        {
+                            <div class="preview-item border-bottom">
+                                <div class="preview-thumbnail">
+                                        <img src="~/userimage/@item.ImageUrl">
+                                </div>
+                                <div class="preview-item-content d-sm-flex flex-grow">
+                                    <div class="flex-grow">
+                                        <h6 class="preview-subject">@item.Name @item.Surname</h6>
+                                        <p text-muted mb-1>@item.Email</p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        }
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

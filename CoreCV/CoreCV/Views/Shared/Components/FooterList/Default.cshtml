@@ -1,0 +1,25 @@
+﻿@using EntityLayer.Concrete
+@model List<Feature>
+
+<footer class="pt-4 pb-4 text-center bg-light">
+    <div class="container">
+        @foreach(var item in Model){
+        <div class="my-3">
+                
+                <div class="h4">@item.Name</div>
+                <p>@item.Title</p>
+                <div class="social-nav">
+
+                    @await Component.InvokeAsync("SocialList")
+
+                </div>
+            </div>
+        }
+            <div class="text-small text-secondary">
+                <div class="mb-1">&copy; Super Folio. All rights reserved.</div>
+                <div>
+                    <!-- Make sure to buy a license for the template before removing the line below. Buy license on https://templateflip.com/ -->Design - <a href="https://templateflip.com/" target="_blank">TemplateFlip</a>
+                </div>
+            </div>
+        </div>
+    </footer>

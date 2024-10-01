@@ -1,0 +1,32 @@
+﻿@using EntityLayer.Concrete
+@model List<Message>
+
+
+<div class="col-md-4 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex flex-row justify-content-between">
+                <h4 class="card-title mb-1">Son Mesajlar</h4>
+
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="preview-list">
+                        @foreach (var item in Model)
+                        {
+                            <div class="preview-item border-bottom">
+                                <div class="preview-item-content d-sm-flex flex-grow">
+                                    <div class="flex-grow">
+                                        <h6 class="preview-subject">@item.Name |<font color="red"> @(((DateTime)item.Date).ToString("dd-MMM-yyy"))</font></h6><br>
+                                        <p text-muted mb-1>@(item.Content.Length > 50 ? item.Content.Substring(0, 50) + "..." : item.Content)</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

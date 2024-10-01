@@ -1,0 +1,77 @@
+﻿@using EntityLayer.Concrete
+@model List<Portfolio>
+
+<div class="row ">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Proje Listesi</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Ana Görsel</th>
+                                <th>Proje Adı</th>
+                                <th>URL</th>
+                                <th>Fiyat</th>
+                                <th>Tamamlanma Oranı</th>
+                                <th>Durum</th>
+                                <th>SİL</th>
+                                <th>GÜNCELLE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model){
+                            <tr>
+                                <td>@item.PortfolioID</td>
+                                <td><img src="@item.ImageUrl" />
+                                        <img src="@item.ImageUrl2" />
+                                </td>
+                                <td>@item.Name</td>
+                                <td>@item.ProjectUrl</td>
+                                <td>@item.Price</td>
+                                    <td>
+                                        @if (item.Value == 100)
+                                        {
+                                            <div class="progress">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: @item.Value%" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        }
+                                        else if (item.Value > 50)
+                                        {
+                                            <div class="progress">
+                                                <div class="progress-bar bg-warning" role="progressbar" style="width: @item.Value%" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        }
+                                        else if (item.Value <= 50)
+                                        {
+                                            <div class="progress">
+                                                <div class="progress-bar bg-danger" role="progressbar" style="width: @item.Value%" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <font color="White"><b><u>EKSİK VERİ !!!!!!</u></b></font>
+                                        }
+                                    </td>
+                                <td>
+                                    @if(item.Status == true){
+                                            <div class="badge badge-outline-success">Tamamlandı</div>
+                                        }
+                                        else if(item.Status ==false)
+                                        {
+                                            <div class="badge badge-outline-danger">Tamamlanmadı</div>
+                                        }
+                                    </td>
+                                    <td> <a href="/Portfolio/DeletePortfolio/@item.PortfolioID" class="btn btn-outline-danger">SİL</a> </td>
+                                    <td> <a href="/Portfolio/EditPortfolio/@item.PortfolioID" class="btn btn-outline-warning">GÜNCELLE</a> </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

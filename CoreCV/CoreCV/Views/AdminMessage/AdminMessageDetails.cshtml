@@ -1,0 +1,38 @@
+﻿@model EntityLayer.Concrete.WriterMessage
+@{
+    ViewData["Title"] = "AdminMessageDetails";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="row justify-content-center">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-left">
+                       
+                    </div>
+                    <div class="text-right">
+
+                        <small>
+                            <p class="font-weight-500" style="font-size: 15px; word-break:break-word">Gönderen:  @Model.SenderName - @Model.Sender</p>
+                            <p class="font-weight-500" style="font-size: 15px; word-break:break-word">Alıcı:  @Model.ReceiverName - @Model.Receiver</p>
+                        </small>
+                    </div>  
+                    <p class="card-title" style="font-size: 30px">@Model.Subject</p>
+                    
+                    <br />
+                   
+                    <br />
+                    
+                    <p class="font-weight-500" style="font-size: 15px; word-break:break-word">@Model.MessageContent</p>
+
+                    <div class="text-right">
+                        <small><strong><font color="red">@Model.Date.ToString("dd.MM.yyyy")</font></strong></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

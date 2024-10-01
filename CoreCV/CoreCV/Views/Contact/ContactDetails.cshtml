@@ -1,0 +1,25 @@
+﻿@model EntityLayer.Concrete.Message
+@{
+    ViewData["Title"] = "ContactDetails";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="row justify-content-center">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-title" style="font-size: 24px">@Model.Name - @Model.Mail</p>
+                    <br />
+                    <br />
+                    <p class="font-weight-500" style="font-size: 15px; word-break:break-word">@Model.Content</p>
+
+                    <div class="text-right">
+                        <small><strong><font color="red">@Model.Date.ToString("dd.MM.yyyy")</font></strong></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
